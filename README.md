@@ -30,6 +30,16 @@ The Markdown document renders via Daan Leijen's [Madoko][]. If you have [Node][]
 [Madoko]: https://www.madoko.net/
 
 
+Inspirations
+------------
+
+I was inspired to start an open-source, collaborative, GitHub-hosted bibliography by a few other projects: the one by Sam Tobin-Hochstadt on [gradual typing][gt], another on [deep learning][dl], and a third on [multicast TCP][mt].
+
+[mt]: https://github.com/obonaventure/mptcp-bib
+[gt]: https://github.com/samth/gradual-typing-bib
+[dl]: https://github.com/memkite/DeepLearningBibliography
+
+
 License
 -------
 
