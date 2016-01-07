@@ -1,7 +1,10 @@
 bib: approx
-title: Annotated Bibliography &br; on Approximate Computing
+title: Annotated Bibliography on Approximate Computing
 cite style: numeric
 bib search url:
+js footer:
+  var t = document.querySelector(".titleblock .title");
+  t.innerHTML = t.textContent.replace(" on ", "<br>on ");
 
 [TITLE]
 
