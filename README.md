@@ -19,6 +19,17 @@ Style guidelines are forthcoming.
 [md]: https://github.com/sampsyo/approxbib/blob/master/index.md
 
 
+Building
+--------
+
+The Markdown document renders via Daan Leijen's [Madoko][]. If you have [Node][] and [npm][] installed, you can just type `make` to build both an HTML version and a PDF version via LaTeX. The latest HTML rendering is automatically [hosted online][approxbib].
+
+[approxbib]: http://approximate.computer/approxbib/
+[npm]: https://www.npmjs.com/
+[Node]: https://nodejs.org/
+[Madoko]: https://www.madoko.net/
+
+
 License
 -------
 
