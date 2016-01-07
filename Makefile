@@ -22,6 +22,17 @@ $(MADOKO):
 	npm install madoko
 	@touch $@
 
+# Clean.
+.PHONY: clean
+clean: rm -rf $(HTML_DIR) $(PDF_DIR) node_modules
+
+# Deploy to the Web.
+.PHONY: deploy
+RSYNCARGS := --compress --recursive --checksum --delete -e ssh
+DEST := dh:domains/approximate.computer/approxbib
+deploy: html
+	rsync $(RSYNCARGS) $(HTML_DIR)/ $(DEST)
+
 # Auto-build Web version using https://facebook.github.io/watchman/
 .PHONY: watch
 watch:
