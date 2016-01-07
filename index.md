@@ -1,5 +1,5 @@
 bib: approx
-title: Annotated Bibliography on Approximate Computing
+title: Annotated Bibliography &br; on Approximate Computing
 cite style: numeric
 bib search url:
 
