@@ -6,6 +6,11 @@ js footer:
   var t = document.querySelector(".titleblock .title");
   t.innerHTML = t.textContent.replace(" on ", "<br>on ");
 
+.Todo {
+  color: red;
+  caption: "TODO";
+}
+
 <style>
 .madoko p, .madoko li {
   -webkit-hyphens: auto;
@@ -14,6 +19,7 @@ js footer:
   hyphens: auto;
 }
 </style>
+
 
 [TITLE]
 
@@ -36,8 +42,12 @@ Application Tolerance Studies
 This category of proto-approximate-computing work focuses on analyzing applications to measure their resilience to error. These papers typically assume a particular model of error---often hardware-inspired, such as random bit flips in memory---and execute programs under simulation, measuring crashes and output-quality degradation.
 To measure output quality, these studies typically define a straightforward metric for each application, such as PSNR for media outputs.
 
-TODO [@arcs12; @ipdps09; @thaker-iiswc06; @elastic-fidelity; @chippa-dac].
-Three papers by Li in 2006--08: [@li06; @li07; @li08]
+~ TODO
+Summarize the papers in the next paragraph.
+~
+
+Three papers by Li and Yeung in 2006--08 [@li06; @li07; @li08]; other papers that need summaries
+[@arcs12; @ipdps09; @thaker-iiswc06; @elastic-fidelity; @chippa-dac].
 A 2009 study in SELSE, @dekruijf-selse09, precedes the authors' later work on software-directed fault recovery [@relax].
 
     @inproceedings{arcs12,
