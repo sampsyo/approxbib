@@ -1,6 +1,7 @@
 SOURCES := index.md approx.bib
 HTML_DIR := html
 PDF_DIR := pdf
+PUBLIC_DIR := public
 MADOKO := node_modules/.bin/madoko
 SPLITERATE := node_modules/.bin/spliterate
 
@@ -31,14 +32,23 @@ $(SPLITERATE):
 
 # Clean.
 .PHONY: clean
-clean: rm -rf $(HTML_DIR) $(PDF_DIR) node_modules
+clean: rm -rf $(HTML_DIR) $(PDF_DIR) $(PUBLIC_DIR) node_modules
+
+# Public compendium: a clean copy of everything we want to upload.
+.PHONY: public
+public: $(SOURCES) html pdf
+	rm -rf $(PUBLIC_DIR)
+	mkdir $(PUBLIC_DIR)
+	cp $(HTML_DIR)/index.html $(PUBLIC_DIR)
+	cp $(PDF_DIR)/index.pdf $(PUBLIC_DIR)
+	cp $(SOURCES) $(PUBLIC_DIR)
 
 # Deploy to the Web.
 .PHONY: deploy
 RSYNCARGS := --compress --recursive --checksum --delete -e ssh
 DEST := dh:domains/approximate.computer/approxbib
-deploy: html
-	rsync $(RSYNCARGS) $(HTML_DIR)/ $(DEST)
+deploy: public
+	rsync $(RSYNCARGS) $(PUBLIC_DIR)/ $(DEST)
 
 # Auto-build Web version using https://facebook.github.io/watchman/
 .PHONY: watch
