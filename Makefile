@@ -49,7 +49,7 @@ public: $(RENDERABLE) html pdf
 
 # Deploy to the Web.
 .PHONY: deploy
-RSYNCARGS := --compress --recursive --checksum --delete -e ssh
+RSYNCARGS := --compress --recursive --checksum --delete -h -i -e ssh
 DEST := dh:domains/approximate.computer/approxbib
 deploy: public
 	rsync $(RSYNCARGS) $(PUBLIC_DIR)/ $(DEST)
