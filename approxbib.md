@@ -10,7 +10,14 @@ js footer:
 
 This is an annotated bibliography on the topic of *approximate computing*. It's a collaborative, open-source project: to contribute, see its [home on GitHub][approxbib-gh].
 
+~ HtmlOnly
+You can also download [the BibTeX citation database][bib], read [a PDF version of this document][pdf], or view [the raw Markdown][md].
+~
+
 [approxbib-gh]: https://github.com/sampsyo/approxbib
+[bib]: approx.bib
+[pdf]: index.pdf
+[md]: index.md
 
 
 EnerJ
