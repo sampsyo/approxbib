@@ -20,6 +20,14 @@ You can also download [the BibTeX citation database][bib], read [a PDF version o
 [md]: index.md
 
 
+```bibtex
+% Venue shorthands.
+
+@string{pldi = {{ACM} Conference on Programming Language Design and
+    Implementation (PLDI)}}
+```
+
+
 EnerJ
 =====
 
@@ -28,8 +36,10 @@ EnerJ is a type system [@enerj].
     @inproceedings{enerj,
      author = {Sampson, Adrian and Dietl, Werner and Fortuna, Emily and Gnanapragasam, Danushen and Ceze, Luis and Grossman, Dan},
      title = {{EnerJ}: {Approximate} data types for safe and general low-power computation},
-     booktitle = {PLDI},
-     year = {2011}
+     booktitle = pldi,
+     year = {2011},
+     url = {http://homes.cs.washington.edu/~asampson/media/papers/enerj-pldi2011.pdf},
+     doi = {10.1145/1993316.1993518},
     }
 
 [BIB]

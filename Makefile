@@ -54,4 +54,4 @@ deploy: public
 .PHONY: watch
 watch:
 	watchman-make --settle 0.1 \
-		-p $(SOURCES) -t html
+		-p approxbib.md -t html
