@@ -2,12 +2,16 @@ SOURCES := index.md approx.bib
 HTML_DIR := html
 PDF_DIR := pdf
 MADOKO := node_modules/.bin/madoko
+SPLITERATE := node_modules/.bin/spliterate
 
 # Shortcuts.
-.PHONY: all html pdf
-all: html pdf
+.PHONY: html pdf
 html: $(HTML_DIR)/index.html
 pdf: $(PDF_DIR)/index.pdf
+
+# Split the literate file into BibTeX and Markdown.
+index.md approx.bib: approxbib.md $(SPLITERATE)
+	$(SPLITERATE) $< -m index.md -c approx.bib
 
 # Build Web page.
 $(HTML_DIR)/index.html: $(SOURCES) $(MADOKO)
@@ -17,9 +21,12 @@ $(HTML_DIR)/index.html: $(SOURCES) $(MADOKO)
 $(PDF_DIR)/index.pdf: $(SOURCES) $(MADOKO)
 	$(MADOKO) --odir=$(PDF_DIR) --pdf $<
 
-# Install Madoko for document creation.
+# Install Madoko and Spliterate.
 $(MADOKO):
 	npm install madoko
+	@touch $@
+$(SPLITERATE):
+	npm install spliterate
 	@touch $@
 
 # Clean.

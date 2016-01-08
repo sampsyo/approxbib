@@ -7,16 +7,12 @@ This is a nascent attempt to gather the literature on *approximate computing* in
 Contributing
 ------------
 
-To expand the bibliography, please fork [this repository on GitHub][approxbib-gh] and open a pull request. There are two files you'll need to edit to add a new reference:
-
-- [`approx.bib`][bib], the BibTeX database of citation data.
-- [`index.md`][md], the human-readable document that organizes and annotates the citations.
+To expand the bibliography, please fork [this repository on GitHub][approxbib-gh] and open a pull request. The [`approxbib.md`][md] contains both the Markdown content for the final document *and* the BibTeX citations. BibTeX citations should be given in Markdown indented code blocks, in a literate-programming style.
 
 Style guidelines are forthcoming.
 
 [approxbib-gh]: https://github.com/sampsyo/approxbib
-[bib]: https://github.com/sampsyo/approxbib/blob/master/approx.bib
-[md]: https://github.com/sampsyo/approxbib/blob/master/index.md
+[md]: https://github.com/sampsyo/approxbib/blob/master/approxbib.md
 
 
 Building
@@ -24,10 +20,13 @@ Building
 
 The Markdown document renders via Daan Leijen's [Madoko][]. If you have [Node][] and [npm][] installed, you can just type `make` to build an HTML version. You can also `make pdf` to get a PDF version via LaTeX. The latest HTML rendering is automatically [hosted online][approxbib].
 
+The Makefile also takes care of preprocessing the [`approxbib.md`][md] to split it into two pieces: the human-readable document, `index.md`, and `approx.bib`, the BibTeX citation file. This uses a tool called [Spliterate][], which is also installed from npm.
+
 [approxbib]: http://approximate.computer/approxbib/
 [npm]: https://www.npmjs.com/
 [Node]: https://nodejs.org/
 [Madoko]: https://www.madoko.net/
+[spliterate]: https://github.com/sampsyo/spliterate
 
 
 Inspirations

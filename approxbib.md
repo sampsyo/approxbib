@@ -18,5 +18,11 @@ EnerJ
 
 EnerJ is a type system [@enerj].
 
+    @inproceedings{enerj,
+     author = {Sampson, Adrian and Dietl, Werner and Fortuna, Emily and Gnanapragasam, Danushen and Ceze, Luis and Grossman, Dan},
+     title = {{EnerJ}: {Approximate} data types for safe and general low-power computation},
+     booktitle = {PLDI},
+     year = {2011}
+    }
 
 [BIB]
