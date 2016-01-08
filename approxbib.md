@@ -33,21 +33,166 @@ You can also download [the BibTeX citation database][bib], read [a PDF version o
 Application Tolerance Studies
 =============================
 
-Many authors have identified the property of error tolerance in existing
-"soft" applications. A large class of studies have examined this
-property by injecting errors into certain parts of applications and
-assessing the execution quality in terms of both crashes and output
-fidelity
-[@li06; @li07; @li08; @dekruijf-selse09; @wong-selse06; @palem-arcs; @freton; @besteffort; @yeh; @thaker-iiswc06; @efc; @llfi; @chippa-dac].
-Related studies have evaluated error-resilience in integrated circuit
-designs [@breuer; @scalable-effort-hardware]. This category of study
-repeatedly finds that different parts of the application have different
-impacts on reliability and fidelity. Some conclude that there is a
+This category of proto-approximate-computing work focuses on analyzing applications to measure their resilience to error. These papers typically assume a particular model of error---often hardware-inspired, such as random bit flips in memory---and execute programs under simulation, measuring crashes and output-quality degradation.
+To measure output quality, these studies typically define a straightforward metric for each application, such as PSNR for media outputs.
+
+TODO [@arcs12; @ipdps09; @thaker-iiswc06; @elastic-fidelity; @chippa-dac].
+Three papers by Li in 2006--08: [@li06; @li07; @li08]
+A 2009 study in SELSE, @dekruijf-selse09, precedes the authors' later work on software-directed fault recovery [@relax].
+
+    @inproceedings{arcs12,
+      author    = {Andreas Heinig and
+                   Vincent John Mooney and
+                   Florian Schmoll and
+                   Peter Marwedel and
+                   Krishna V. Palem and
+                   Michael Engel},
+      title     = {Classification-Based Improvement of Application Robustness
+                   and Quality of Service in Probabilistic Computer Systems},
+      booktitle = {International Conference on Architecture of Computing Systems
+          (ARCS)},
+      year      = {2012},
+    }
+
+    @inproceedings{ipdps09,
+     author = {Jiayuan Meng and Chakradhar, Srimat and Raghunathan, Anand},
+     title = {Best-effort parallel execution framework for Recognition and mining applications},
+     booktitle = ipdps,
+     year = {2009},
+    }
+
+    @inproceedings{thaker-iiswc06,
+      author    = {Darshan D. Thaker and
+                   Diana Franklin and
+                   John Oliver and
+                   Susmit Biswas and
+                   Derek Lockhart and
+                   Tzvetan S. Metodi and
+                   Frederic T. Chong},
+      title     = {Characterization of Error-Tolerant Applications when Protecting
+                   Control Data},
+      booktitle = iiswc,
+      year      = {2006},
+    }
+
+    @techreport{elastic-fidelity,
+        author={Sourya Roy and Tyler Clemons and S M Faisal and Ke Liu and Nikos
+            Hardavellas and Srinivasan Parthasarathy},
+        title = {Elastic Fidelity: Trading-off Computational Accuracy for Energy
+            Reduction},
+        institution = {Northwestern University},
+        number = {NWU-EECS-11-02},
+        year = {2011},
+    }
+
+    @inproceedings{chippa-dac,
+     author = {Chippa, Vinay K. and Chakradhar, Srimat T. and Roy, Kaushik and Raghunathan, Anand},
+     title = {Analysis and Characterization of Inherent Application Resilience for Approximate Computing},
+     booktitle = dac,
+     year = {2013},
+    }
+
+    @INPROCEEDINGS{li06,
+        author = {Xuanhua Li and Donald Yeung},
+        title = {Exploiting soft computing for increased fault tolerance},
+        booktitle = {Workshop on Architectural Support for Gigascale Integration
+            (ASGI)},
+        year = {2006},
+        url={http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.78.2997}
+    }
+
+    @INPROCEEDINGS{li07,
+        author = {Li, Xuanhua and Yeung, Donald},
+        title = {Application-Level Correctness and its Impact on Fault Tolerance},
+        booktitle = hpca,
+        year = {2007},
+        url={http://dx.doi.org/10.1109/HPCA.2007.346196}
+    }
+
+    @article{li08,
+        author = {Xuanhua Li and Donald Yeung},
+        title = {Exploiting Application-Level Correctness for Low-Cost Fault Tolerance},
+        year = {2008},
+        journal = {Journal of Instruction-Level Parallelism},
+        url={http://www.jilp.org/vol10/v10paper10.pdf}
+    }
+
+
+    @inproceedings{dekruijf-selse09,
+        Author = {de Kruijf, M. and Sankaralingam, K.},
+        Booktitle = selse,
+        Title = {Exploring the synergy of emerging workloads and silicon reliability trends},
+        Year = {2009}
+    }
+
+One category of studies focuses on specific application domains.
+Wong and Horowitz identify resilience specifically in probabilistic-inference applications [@wong-selse06].
+@fang-ats11 address video applications,
+and @yeh-tog address physical simulation for animation.
+Other studies have focused on integrated circuit designs rather than software applications
+[@breuer; @scalable-effort-hardware].
+
+    @inproceedings{breuer,
+     author = {Breuer, Melvin A.},
+     title = {Multi-media Applications and Imprecise Computation},
+     booktitle = dsd,
+     year = {2005},
+    }
+
+    @INPROCEEDINGS{scalable-effort-hardware,
+      author={Chippa, V.K. and Mohapatra, D. and Raghunathan, A. and Roy, K. and Chakradhar, S.T.},
+      booktitle=dac,
+      title={Scalable effort hardware design: Exploiting algorithmic resilience for energy efficiency},
+      year={2010},
+    }
+
+    @inproceedings{wong-selse06,
+        Author = {Vicky Wong and Mark Horowitz},
+        booktitle = selse,
+        Title = {Soft Error Resilience of Probabilistic Inference Applications},
+        Year = {2006}
+    }
+
+    @inproceedings{fang-ats11,
+        title={A Fault Criticality Evaluation Framework of Digital Systems for Error
+            Tolerant Video Applications},
+        author={Yuntan Fang and Huawei Li and Xiaowei Li},
+        year={2011},
+        booktitle=ats,
+    }
+
+    @article{yeh-tog,
+     author = {Yeh, Thomas Y. and Reinman, Glenn and Patel, Sanjay J. and Faloutsos, Petros},
+     title = {Fool me twice: Exploring and exploiting error tolerance in physics-based animation},
+     journal = {ACM Transactions on Graphics},
+     issue_date = {December 2009},
+     volume = {29},
+     number = {1},
+     month = dec,
+     year = {2009},
+    }
+
+LLFI is a tool based on [LLVM][] for performing this kind of simulation by injecting errors at the compiler-IR level.
+
+[LLVM]: http://llvm.org/
+
+    @inproceedings{llfi,
+        author = {Anna Thomas and Karthik Pattabiraman},
+        title = {LLFI: An Intermediate Code Level Fault Injector For Soft
+            Computing Applications},
+        booktitle = selse,
+        year = {2013},
+    }
+
+
+Some of these studies conclude that there is a
 useful distinction between critical and non-critical program points,
-typically instructions [@palem-arcs; @thaker-iiswc06; @flikker; @llfi].
-This conclusion reflects the safety principle in : certain program
-components, especially those involved in control flow, need to be
-protected from all of approximation's effects.
+typically instructions [@arcs12; @thaker-iiswc06; @llfi].
+This conclusion is borne out in later work on systems that exploit this distinction [@flikker; @enerj].
+
+
+Measuring Quality
+=================
 
 This work tends to assume an existing, domain-specific notion of
 "quality" for each application. As the principle in suggests, these
@@ -393,36 +538,7 @@ selective fault tolerance [@cong-iccad].
      month = {11}
 }
 
-@inproceedings{wong-selse06,
-    Author = {Vicky Wong and Mark Horowitz},
-    booktitle = selse,
-    Title = {Soft Error Resilience of Probabilistic Inference Applications},
-    Year = {2006}}
 
-@article{li08,
-    author = {Xuanhua Li and Donald Yeung},
-    title = {Exploiting Application-Level Correctness for Low-Cost Fault Tolerance},
-    year = {2008},
-    journal = {Journal of Instruction-Level Parallelism},
-    url={http://www.jilp.org/vol10/v10paper10.pdf}
-}
-
-@INPROCEEDINGS{li07,
-    author = {Li, Xuanhua and Yeung, Donald},
-    title = {Application-Level Correctness and its Impact on Fault Tolerance},
-    booktitle = hpca,
-    year = {2007},
-    url={http://dx.doi.org/10.1109/HPCA.2007.346196}
-}
-
-@INPROCEEDINGS{li06,
-    author = {Xuanhua Li and Donald Yeung},
-    title = {Exploiting soft computing for increased fault tolerance},
-    booktitle = {Workshop on Architectural Support for Gigascale Integration
-        (ASGI)},
-    year = {2006},
-    url={http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.78.2997}
-}
 
 @inproceedings{stanleymarbell,
     Author = {Stanley-Marbell, Phillip},
@@ -488,40 +604,11 @@ selective fault tolerance [@cong-iccad].
  year = {2012},
 }
 
-@inproceedings{palem-arcs,
-  author    = {Andreas Heinig and
-               Vincent John Mooney and
-               Florian Schmoll and
-               Peter Marwedel and
-               Krishna V. Palem and
-               Michael Engel},
-  title     = {Classification-Based Improvement of Application Robustness
-               and Quality of Service in Probabilistic Computer Systems},
-  booktitle = {International Conference on Architecture of Computing Systems
-      (ARCS)},
-  year      = {2012},
-}
-
-@inproceedings{freton,
-    title={A Fault Criticality Evaluation Framework of Digital Systems for Error
-        Tolerant Video Applications},
-    author={Yuntan Fang and Huawei Li and Xiaowei Li},
-    year={2011},
-    booktitle=ats,
-}
-
 @INPROCEEDINGS{robustification,
 author={Sloan, J. and Kesler, D. and Kumar, R. and Rahimi, A.},
 booktitle=dsn,
 title={A numerical optimization-based methodology for application robustification: Transforming applications for error tolerance},
 year={2010},
-}
-
-@inproceedings{besteffort,
- author = {Jiayuan Meng and Chakradhar, Srimat and Raghunathan, Anand},
- title = {Best-effort parallel execution framework for Recognition and mining applications},
- booktitle = ipdps,
- year = {2009},
 }
 
 @inproceedings{sjava,
@@ -546,43 +633,11 @@ year={2010},
  year = {2008},
 }
 
-@article{yeh,
- author = {Yeh, Thomas Y. and Reinman, Glenn and Patel, Sanjay J. and Faloutsos, Petros},
- title = {Fool me twice: Exploring and exploiting error tolerance in physics-based animation},
- journal = {ACM Transactions on Graphics},
- issue_date = {December 2009},
- volume = {29},
- number = {1},
- month = dec,
- year = {2009},
-}
-
 @inproceedings{li-asplos08,
  author = {Li, Man-Lap and Ramachandran, Pradeep and Sahoo, Swarup Kumar and Adve, Sarita V. and Adve, Vikram S. and Zhou, Yuanyuan},
  title = {Understanding the propagation of hard errors to software and implications for resilient system design},
  booktitle = asplos,
  year = {2008},
-}
-
-@inproceedings{thaker-iiswc06,
-  author    = {Darshan D. Thaker and
-               Diana Franklin and
-               John Oliver and
-               Susmit Biswas and
-               Derek Lockhart and
-               Tzvetan S. Metodi and
-               Frederic T. Chong},
-  title     = {Characterization of Error-Tolerant Applications when Protecting
-               Control Data},
-  booktitle = iiswc,
-  year      = {2006},
-}
-
-@inproceedings{breuer,
- author = {Breuer, Melvin A.},
- title = {Multi-media Applications and Imprecise Computation},
- booktitle = dsd,
- year = {2005},
 }
 
 @inproceedings{softcast,
@@ -629,23 +684,6 @@ year={2011},
  month = sep,
  year = {2012},
  pages = {415--431},
-}
-
-@INPROCEEDINGS{scalable-effort-hardware,
-author={Chippa, V.K. and Mohapatra, D. and Raghunathan, A. and Roy, K. and Chakradhar, S.T.},
-booktitle=dac,
-title={Scalable effort hardware design: Exploiting algorithmic resilience for energy efficiency},
-year={2010},
-}
-
-@techreport{efc,
-    author={Sourya Roy and Tyler Clemons and S M Faisal and Ke Liu and Nikos
-        Hardavellas and Srinivasan Parthasarathy},
-    title = {Elastic Fidelity: Trading-off Computational Accuracy for Energy
-        Reduction},
-    institution = {Northwestern University},
-    number = {NWU-EECS-11-02},
-    year = {2011},
 }
 
 @inproceedings{liu87,
@@ -940,14 +978,6 @@ year={2012},
         Title = {{JFlow}: practical mostly-static information flow control},
         Year = {1999}}
 
-@inproceedings{llfi,
-    author = {Anna Thomas and Karthik Pattabiraman},
-    title = {LLFI: An Intermediate Code Level Fault Injector For Soft
-        Computing Applications},
-    booktitle = selse,
-    year = {2013},
-}
-
 @techreport{mansinghka-circuits,
     author = {Vikash K. Mansinghka and Eric M. Jonas and Joshua B.
         Tenenbaum},
@@ -1094,12 +1124,6 @@ year={2012},
 	HIDE_TO_SAVE_SPACE_Month = {September~12,},
 	Title = {{Type Annotations} specification ({JSR} 308)},
 	Year = {2008}}
-
-@inproceedings{dekruijf-selse09,
-	Author = {de Kruijf, M. and Sankaralingam, K.},
-	Booktitle = selse,
-	Title = {Exploring the synergy of emerging workloads and silicon reliability trends},
-	Year = {2009}}
 
 @article{fuzzymemo,
 	Author = {Alvarez, Carlos and Corbal, Jesus and Valero, Mateo},
@@ -2189,13 +2213,6 @@ year={1994},
     title = {Exploiting application level error resilience via deferred execution},
     school = {University of Illinois at Urbana-Champaign},
     year = {2013},
-}
-
-@inproceedings{chippa-dac,
- author = {Chippa, Vinay K. and Chakradhar, Srimat T. and Roy, Kaushik and Raghunathan, Anand},
- title = {Analysis and Characterization of Inherent Application Resilience for Approximate Computing},
- booktitle = dac,
- year = {2013},
 }
 
 @INPROCEEDINGS{rahimi,
