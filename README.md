@@ -22,7 +22,7 @@ Style guidelines are forthcoming.
 Building
 --------
 
-The Markdown document renders via Daan Leijen's [Madoko][]. If you have [Node][] and [npm][] installed, you can just type `make` to build both an HTML version and a PDF version via LaTeX. The latest HTML rendering is automatically [hosted online][approxbib].
+The Markdown document renders via Daan Leijen's [Madoko][]. If you have [Node][] and [npm][] installed, you can just type `make` to build an HTML version. You can also `make pdf` to get a PDF version via LaTeX. The latest HTML rendering is automatically [hosted online][approxbib].
 
 [approxbib]: http://approximate.computer/approxbib/
 [npm]: https://www.npmjs.com/
