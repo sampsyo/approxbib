@@ -277,10 +277,10 @@ useful distinction between critical and non-critical program points,
 typically instructions [@palem-arcs; @thaker-iiswc06; @flikker; @llfi].
 This conclusion reflects the safety principle in : certain program
 components, especially those involved in control flow, need to be
-protected from all of approximation’s effects.
+protected from all of approximation's effects.
 
 This work tends to assume an existing, domain-specific notion of
-“quality” for each application. As the principle in suggests, these
+"quality" for each application. As the principle in suggests, these
 quality metrics need careful consideration: one quality metric is not
 necessarily just as good as another. Recent work has proposed guidelines
 for rigorous quality measurement [@wddd-quality].
@@ -363,7 +363,7 @@ Microarchitecture
 -----------------
 
 Microarchitectural mechanisms can exploit different opportunities from
-circuit-level techniques. Specifically, “soft coherence” relaxes
+circuit-level techniques. Specifically, "soft coherence" relaxes
 intercore communication [@softcoherence], and load value
 approximation [@lva-sanmiguel; @lva-thwaites] approximates numerical
 values instead of fetching them from main memory on cache misses.
