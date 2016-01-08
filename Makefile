@@ -53,9 +53,3 @@ RSYNCARGS := --compress --recursive --checksum --delete -h -i -e ssh
 DEST := dh:domains/approximate.computer/approxbib
 deploy: public
 	rsync $(RSYNCARGS) $(PUBLIC_DIR)/ $(DEST)
-
-# Auto-build Web version using https://facebook.github.io/watchman/
-.PHONY: watch
-watch:
-	watchman-make --settle 0.1 \
-		-p approxbib.md -t html
