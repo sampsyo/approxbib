@@ -6,6 +6,15 @@ js footer:
   var t = document.querySelector(".titleblock .title");
   t.innerHTML = t.textContent.replace(" on ", "<br>on ");
 
+<style>
+.madoko p, .madoko li {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+</style>
+
 [TITLE]
 
 This is an annotated bibliography on the topic of *approximate computing*. It's a collaborative, open-source project: to contribute, see its [home on GitHub][approxbib-gh].
