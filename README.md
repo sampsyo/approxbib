@@ -9,10 +9,13 @@ Contributing
 
 To expand the bibliography, please fork [this repository on GitHub][approxbib-gh] and open a pull request. The [`approxbib.md`][md] contains both the Markdown content for the final document *and* the BibTeX citations. BibTeX citations should be given in Markdown indented code blocks, in a literate-programming style.
 
-Style guidelines are forthcoming.
+Venue name are listed as `@string` entries in [`venues.bib`][venues] for consistency. Please always put venue names here, unless your new citation is to some obscure workshop that's very unlikely to come up more than once.
+
+More style guidelines are forthcoming.
 
 [approxbib-gh]: https://github.com/sampsyo/approxbib
 [md]: https://github.com/sampsyo/approxbib/blob/master/approxbib.md
+[venues]: https://github.com/sampsyo/approxbib/blob/master/venues.bib
 
 
 Building
