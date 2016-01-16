@@ -663,7 +663,7 @@ Other studies have focused on integrated circuit designs rather than software ap
      year = {2009},
     }
 
-LLFI is a tool based on [LLVM][] for performing this kind of simulation by injecting errors at the compiler-IR level.
+LLFI is a tool based on [LLVM][] for performing this kind of simulation by injecting errors at the compiler-IR level [@llfi].
 
 [LLVM]: http://llvm.org/
 
