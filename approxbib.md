@@ -56,15 +56,19 @@ The second is on *programming* approximate systems: assuming that approximation 
 Approximation Techniques
 ========================
 
+This section enumerates *techniques* for implementing approximation.
+There are three main categories:
+approximation in *computer architecture* (i.e., computation and storage hardware),
+approximation in *software* via program transformation,
+and approximation elsewhere (e.g., networks).
 
 In Architecture
 ---------------
 
-Hardware techniques for approximation can lead to gains in energy,
-performance, manufacturing yield, or verification complexity. We
-categorize hardware-based approximation strategies according to the
-hardware component they affect: computational units, memories, or entire
-system architectures.
+This section deals with hardware-oriented approximation techniques.
+We
+categorize according to the
+hardware component they affect.
 
 ### Functional Units
 
