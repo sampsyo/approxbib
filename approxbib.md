@@ -1,10 +1,8 @@
 bib: approx
-title: Annotated Bibliography on Approximate Computing
+title: Approximate Computing
+subtitle: An Annotated Bibliography
 cite style: numeric
 bib search url:
-js footer:
-  var t = document.querySelector(".titleblock .title");
-  t.innerHTML = t.textContent.replace(" on ", "<br>on ");
 
 .Todo {
   color: red;
@@ -23,11 +21,15 @@ js footer:
 
 [TITLE]
 
-This is an annotated bibliography on the topic of *approximate computing*. It's a collaborative, open-source project: to contribute, see its [home on GitHub][approxbib-gh].
+This is an annotated bibliography on the topic of *approximate computing*.
+It's a living document meant to catalog everything we know about approximation and the earlier work that influenced it.
+It's also a collaborative, open-source project: to contribute, see its [home on GitHub][approxbib-gh].
 
 ~ HtmlOnly
 You can also download [the BibTeX citation database][bib], read [a PDF version of this document][pdf], or view [the raw Markdown][md].
 ~
+
+[TOC]
 
 [approxbib-gh]: https://github.com/sampsyo/approxbib
 [bib]: approx.bib
