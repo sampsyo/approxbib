@@ -40,13 +40,20 @@ You can also download [the BibTeX citation database][bib], read [a PDF version o
 Overview
 ========
 
-~ TODO
-Definition and such.
-~
+Here's the definition of *approximate computing* that this document uses:
+
+> Approximate computing is the idea that computer systems can let applications trade off *accuracy* for *efficiency*. It includes any technique where the system intentionally exposes *incorrectness* to the application layer in return for conserving some resource.
+
+That definition is clearly broad enough to include many ideas that have existed since the beginning of (computational) time.
+Floating-point numbers, for example, approximate real-number arithmetic to save space and time over arbitrary-precision numerical representation.
+This document focuses on the study of approximate computing *in general* and system-level techniques that apply this theory to create new trade-offs.
+
+There are two main research directions in approximate computing, corresponding to the two main sections in this annotated bibliography.
+This first is on *techniques* for approximation: specific strategies for exploiting resilience in applications for efficiency gains.
+The second is on *programming* approximate systems: assuming that approximation techniques exist, a host of new programmability problems arise.
 
 
-
-Approximation Strategies
+Approximation Techniques
 ========================
 
 
