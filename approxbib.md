@@ -3,6 +3,7 @@ title: Approximate Computing
 subtitle: An Annotated Bibliography
 cite style: numeric
 bib search url:
+toc depth: 2
 
 .Todo {
   color: red;
@@ -67,21 +68,166 @@ In Architecture
 
 This section deals with hardware-oriented approximation techniques.
 We
-categorize according to the
+categorize the techniques according to the
 hardware component they affect.
 
 ### Functional Units
 
-Researchers have designed floating-point units that dynamically adapt
-mantissa width [@bitwidthred; @hierarchfpu], "fuzzily" memoize similar
-arithmetic computations [@fuzzymemo], or tolerate timing errors [@kumarhpca;
-@hizli; @metafunctions]. Alternative number representations work in
-tandem with relaxed functional units to bound the numerical error that
-can result from bit flips [@stanleymarbell].
+One straightforward strategy for approximation in floating-point units is to dynamically adapt mantissa width [@tong-bitwidth; @hierarchical-fpu].
 
-The VLSI community has paid particular attention to variable-accuracy
-adder designs, which are allowed to yield incorrect results for some
-minority of input combinations [@uva-adder; @palem-adders; @impact; @adder-metrics; @configurable-adder; @adder-iccad13; @adder-tcad; @adder-optimal; @adder-dac12; @adder-isic09; @adder-date08].
+    @article{tong-bitwidth,
+        Author = {Tong, Jonathan Ying Fai and Nagle, David and Rutenbar, Rob. A.},
+        Journal = tvlsi,
+        Number = {3},
+        Title = {Reducing power by optimizing the necessary precision/range of floating-point arithmetic},
+        Volume = {8},
+        Year = {2000}
+    }
+
+    @inproceedings{hierarchical-fpu,
+        author = {Yeh, Thomas Y. and Faloutsos, Petros and Ercegovac, Milos and Patel, Sanjay J. and Reinman, Glen},
+        title = {The Art of Deception: Adaptive Precision Reduction for Area Efficient Physics Acceleration},
+        booktitle = micro,
+        year = {2007}
+    }
+
+A paper by !@fuzzymemo proposes *fuzzy memoization* for FPUs [@fuzzymemo].
+The idea is to store previously-computed results, as in ordinary memoization, but also to provide a "match" even when inputs are merely *close* to other, previously-seen inputs.
+(Fuzzy memoization comes up elsewhere in approximate computing too.)
+
+    @article{fuzzymemo,
+        Author = {Alvarez, Carlos and Corbal, Jesus and Valero, Mateo},
+        Journal = toc,
+        Number = {7},
+        Title = {Fuzzy Memoization for Floating-Point Multimedia Applications},
+        Volume = {54},
+        Year = {2005},
+    }
+
+To facilitate *voltage overscaling* techniques for approximation, some work designs functional units that are more resilient to timing errors than traditional, precise designs [@hizli-thesis].
+Other work extends this graceful voltage--error scaling to coarser computational blocks [@mohapatra-date11].
+
+    @mastersthesis{hizli-thesis,
+        author = {Caglar Hizli},
+        title = {Energy Aware Probabilistic Arithmetics},
+        school = {Eindhoven University of Technology},
+        year = {2013},
+    }
+
+    @inproceedings{mohapatra-date11,
+      title={Design of voltage-scalable meta-functions for approximate computing},
+      author={Mohapatra, Debabrata and Chippa, Vinay K and Raghunathan, Anand and Roy, Kaushik},
+      booktitle=date,
+      year={2011},
+    }
+
+~ TODO
+The above paragraph must be missing other work on voltage-overscaling-tolerant units.
+~
+
+Alternative number representations work in
+tandem with relaxed functional units to bound the numerical error that
+can result from bit flips [@stanleymarbell-itw09].
+
+    @inproceedings{stanleymarbell-itw09,
+        Author = {Stanley-Marbell, Phillip},
+        Booktitle = {Information Theory Workshop (ITW)},
+        Title = {Encoding Efficiency of Digital Number Representations under Deviation Constraints},
+        Year = {2009}
+    }
+
+A body of VLSI work has designed approximate adders,
+which are allowed to yield incorrect results for some
+minority of input combinations [@weber-adder; @kedem-adder; @impact-adder; @shafique-adder; @ye-adder; @gupta-adder; @adder-synthesis; @kahng-adder; @zhu-adder; @verma-adder].
+!@adder-metrics propose metrics for evaluating these adders [@adder-metrics].
+
+    @INPROCEEDINGS{weber-adder,
+        author={Weber, M. and Putic, M. and Hang Zhang and Lach, J. and Jiawei Huang},
+        booktitle=iscas,
+        title={Balancing Adder for error tolerant applications},
+        year={2013},
+    }
+
+    @inproceedings{kedem-adder,
+     author = {Kedem, Zvi M. and Mooney, Vincent J. and Muntimadugu, Kirthi Krishna and Palem, Krishna V.},
+     title = {An approach to energy-error tradeoffs in approximate ripple carry adders},
+     booktitle = islped,
+     year = {2011},
+    }
+
+    @INPROCEEDINGS{impact-adder,
+    author={Gupta, V. and Mohapatra, D. and Sang Phill Park and Raghunathan, A. and Roy, K.},
+    booktitle=islped,
+    title={{IMPACT}: Imprecise adders for low-power approximate computing},
+    year={2011},
+    }
+
+    @article{adder-metrics,
+        author = {Jinghang Liang and Jie Han and Fabrizio Lombardi},
+        title = {New Metrics for the Reliability of Approximate and Probabilistic Adders},
+        journal = toc,
+        volume = {99},
+        year = {2012},
+    }
+
+    @inproceedings{shafique-adder,
+     author = {Shafique, Muhammad and Ahmad, Waqas and Hafiz, Rehan and Henkel, J\"{o}rg},
+     title = {A Low Latency Generic Accuracy Configurable Adder},
+     booktitle = dac,
+     year = {2015},
+    }
+
+    @inproceedings{ye-adder,
+     author = {Ye, Rong and Wang, Ting and Yuan, Feng and Kumar, Rakesh and Xu, Qiang},
+     title = {On Reconfiguration-oriented Approximate Adder Design and Its Application},
+     booktitle = iccad,
+     year = {2013},
+    }
+
+    @ARTICLE{gupta-adder,
+        author={Gupta, Vaibhav and Mohapatra, Debabrata and Raghunathan, Anand and
+            Roy, Kaushik},
+        journal=tcad,
+        title={Low-Power Digital Signal Processing Using Approximate Adders},
+        year={2013},
+        month={Jan},
+        volume={32},
+        number={1},
+        pages={124--137},
+    }
+
+    @inproceedings{adder-synthesis,
+     author = {Miao, Jin and He, Ku and Gerstlauer, Andreas and Orshansky, Michael},
+     title = {Modeling and Synthesis of Quality-energy Optimal Approximate Adders},
+     booktitle = iccad,
+     year = {2012},
+    }
+
+    @inproceedings{kahng-adder,
+     author = {Kahng, Andrew B. and Kang, Seokhyeong},
+     title = {Accuracy-configurable Adder for Approximate Arithmetic Designs},
+     booktitle = dac,
+     year = {2012},
+    }
+
+    @INPROCEEDINGS{zhu-adder,
+        author={Ning Zhu and Wang Ling Goh and Kiat Seng Yeo},
+        booktitle=isic,
+        title={An enhanced low-power high-speed Adder For Error-Tolerant application},
+        year={2009},
+    }
+
+    @inproceedings{verma-adder,
+         author = {Verma, Ajay K. and Brisk, Philip and Ienne, Paolo},
+         title = {Variable Latency Speculative Addition: A New Paradigm for Arithmetic Circuit Design},
+         booktitle = date,
+         year = {2008},
+    }
+
+~ TODO
+Should we break down the adder work into finer categories?
+Also, there is now more work multipliers that deserves its own paragraph
+~
 
 ### Memory
 
@@ -114,6 +260,39 @@ designs [@venkatesan-iccad11; @tziantzioulis-dac15].
 
 Near-threshold voltage domains also present a new opportunity for
 embracing unpredictable circuit operation [@soft-ntc].
+
+!@overscaling-ground-up propose to place and route processor designs with paths that do not exhibit a "cliff" where voltage scaling causes catastrophic failures [@overscaling-ground-up].
+The original idea there was for so-called better-than-worst-case (BTWC) designs such as Razor [@razor], not approximate computing, but the connection to voltage-overscaling architectures such as Truffle [@truffle] is clear.
+
+    @inproceedings{truffle,
+     author = {Esmaeilzadeh, Hadi and Sampson, Adrian and Ceze, Luis and Burger, Doug},
+     title = {Architecture support for disciplined approximate programming},
+     booktitle = asplos,
+     year = {2012}
+    }
+
+    @INPROCEEDINGS{overscaling-ground-up,
+      author = {Kahng, A.B. and Seokhyeong Kang and Kumar, R. and Sartori, J.},
+      title = {Designing a processor from the ground up to allow voltage/reliability
+        tradeoffs},
+      booktitle = hpca,
+      year = {2010},
+    }
+
+    @INPROCEEDINGS{razor,
+      author = {Ernst, D. and Nam Sung Kim and Das, S. and Pant, S. and Rao, R. and
+        Toan Pham and Ziesler, C. and Blaauw, D. and Austin, T. and Flautner,
+        K. and Mudge, T.},
+      title = {Razor: A low-power pipeline based on circuit-level timing speculation},
+      booktitle = micro,
+      year = {2003},
+    }
+
+~ TODO
+Need more citations on voltage overscaling here.
+~
+
+
 
 ### Relaxed Fault Tolerance
 
@@ -513,12 +692,6 @@ This conclusion is borne out in later work on systems that exploit this distinct
  year = {2011}
 }
 
-@inproceedings{truffle,
- author = {Esmaeilzadeh, Hadi and Sampson, Adrian and Ceze, Luis and Burger, Doug},
- title = {Architecture support for disciplined approximate programming},
- booktitle = asplos,
- year = {2012}
-}
 
 @inproceedings{npu,
  author = {Esmaeilzadeh, Hadi and Sampson, Adrian and Ceze, Luis and Burger, Doug},
@@ -572,12 +745,6 @@ This conclusion is borne out in later work on systems that exploit this distinct
 
 
 
-@inproceedings{stanleymarbell,
-    Author = {Stanley-Marbell, Phillip},
-    Booktitle = {Information Theory Workshop (ITW)},
-    Title = {Encoding Efficiency of Digital Number Representations under Deviation Constraints},
-    Year = {2009}}
-
 @inproceedings{stochasticproc,
     author = {Narayanan, Sriram and Sartori, John and Kumar, Rakesh and Jones, Douglas L.},
     title = {Scalable stochastic processors},
@@ -620,13 +787,6 @@ This conclusion is borne out in later work on systems that exploit this distinct
         (PMUP)},
     year = {2006},
     url={http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.121.9864}
-}
-
-@inproceedings{palem-adders,
- author = {Kedem, Zvi M. and Mooney, Vincent J. and Muntimadugu, Kirthi Krishna and Palem, Krishna V.},
- title = {An approach to energy-error tradeoffs in approximate ripple carry adders},
- booktitle = islped,
- year = {2011},
 }
 
 @inproceedings{palem-dac-position,
@@ -697,13 +857,6 @@ year={2011},
 volume={21},
 number={2},
 pages={101--112},
-}
-
-@INPROCEEDINGS{impact,
-author={Gupta, V. and Mohapatra, D. and Sang Phill Park and Raghunathan, A. and Roy, K.},
-booktitle=islped,
-title={{IMPACT}: Imprecise adders for low-power approximate computing},
-year={2011},
 }
 
 @article{unequal-protection,
@@ -851,28 +1004,11 @@ year={2012},
  year = {2006},
 }
 
-@INPROCEEDINGS{razor,
-  author = {Ernst, D. and Nam Sung Kim and Das, S. and Pant, S. and Rao, R. and
-    Toan Pham and Ziesler, C. and Blaauw, D. and Austin, T. and Flautner,
-    K. and Mudge, T.},
-  title = {Razor: A low-power pipeline based on circuit-level timing speculation},
-  booktitle = micro,
-  year = {2003},
-}
-
 @inproceedings{ant,
  author = {Hegde, Rajamohana and Shanbhag, Naresh R.},
  title = {Energy-efficient signal processing via algorithmic noise-tolerance},
  booktitle = islped,
  year = {1999},
-}
-
-@INPROCEEDINGS{kumarhpca,
-  author = {Kahng, A.B. and Seokhyeong Kang and Kumar, R. and Sartori, J.},
-  title = {Designing a processor from the ground up to allow voltage/reliability
-    tradeoffs},
-  booktitle = hpca,
-  year = {2010},
 }
 
 @INPROCEEDINGS{ersa,
@@ -1019,21 +1155,6 @@ year={2012},
     institution = {MIT},
 }
 
-@mastersthesis{hizli,
-    author = {Caglar Hizli},
-    title = {Energy Aware Probabilistic Arithmetics},
-    school = {Eindhoven University of Technology},
-    year = {2013},
-}
-
-@article{adder-metrics,
-    author = {Jinghang Liang and Jie Han and Fabrizio Lombardi},
-    title = {New Metrics for the Reliability of Approximate and Probabilistic Adders},
-    journal = toc,
-    volume = {99},
-    year = {2012},
-}
-
 @techreport{rice-transformation-semantics,
     author = {Edwin Westbrook and Swarat Chaudhuri},
     title = {A Semantics for Approximate Program Transformations},
@@ -1156,22 +1277,6 @@ year={2012},
 	HIDE_TO_SAVE_SPACE_Month = {September~12,},
 	Title = {{Type Annotations} specification ({JSR} 308)},
 	Year = {2008}}
-
-@article{fuzzymemo,
-	Author = {Alvarez, Carlos and Corbal, Jesus and Valero, Mateo},
-	Journal = toc,
-	Number = {7},
-	Title = {Fuzzy Memoization for Floating-Point Multimedia Applications},
-	Volume = {54},
-	Year = {2005}}
-
-@article{bitwidthred,
-	Author = {Tong, Jonathan Ying Fai and Nagle, David and Rutenbar, Rob. A.},
-	Journal = tvlsi,
-	Number = {3},
-	Title = {Reducing power by optimizing the necessary precision/range of floating-point arithmetic},
-	Volume = {8},
-	Year = {2000}}
 
 @mastersthesis{dramthesis,
 	Author = {Vimal Bhalodia},
@@ -1941,13 +2046,6 @@ pages={101--114},
  year = {2012},
 }
 
-@INPROCEEDINGS{uva-adder,
-author={Weber, M. and Putic, M. and Hang Zhang and Lach, J. and Jiawei Huang},
-booktitle=iscas,
-title={Balancing Adder for error tolerant applications},
-year={2013},
-}
-
 @inproceedings{gradualfp,
     title = {Gradual typing for functional languages},
     author = {Jeremy G. Siek and Walid Taha},
@@ -2424,13 +2522,6 @@ year = {2015},
  year = {2015},
 }
 
-@inproceedings{hierarchfpu,
-	author = {Yeh, Thomas Y. and Faloutsos, Petros and Ercegovac, Milos and Patel, Sanjay J. and Reinman, Glen},
-	title = {The Art of Deception: Adaptive Precision Reduction for Area Efficient Physics Acceleration},
-	booktitle = micro,
-	year = {2007}
-}
-
 @inproceedings{neuralgpu,
 author={Grigorian, Beayna and Reinman, Glenn},
 booktitle=iccd,
@@ -2515,60 +2606,6 @@ year={2015},
  year = {2015},
 }
 
-@inproceedings{configurable-adder,
- author = {Shafique, Muhammad and Ahmad, Waqas and Hafiz, Rehan and Henkel, J\"{o}rg},
- title = {A Low Latency Generic Accuracy Configurable Adder},
- booktitle = dac,
- year = {2015},
-}
-
-@inproceedings{adder-iccad13,
- author = {Ye, Rong and Wang, Ting and Yuan, Feng and Kumar, Rakesh and Xu, Qiang},
- title = {On Reconfiguration-oriented Approximate Adder Design and Its Application},
- booktitle = iccad,
- year = {2013},
-}
-
-@ARTICLE{adder-tcad,
-author={Gupta, Vaibhav and Mohapatra, Debabrata and Raghunathan, Anand and
-    Roy, Kaushik},
-journal=tcad,
-title={Low-Power Digital Signal Processing Using Approximate Adders},
-year={2013},
-month={Jan},
-volume={32},
-number={1},
-pages={124--137},
-}
-
-@inproceedings{adder-optimal,
- author = {Miao, Jin and He, Ku and Gerstlauer, Andreas and Orshansky, Michael},
- title = {Modeling and Synthesis of Quality-energy Optimal Approximate Adders},
- booktitle = iccad,
- year = {2012},
-}
-
-@inproceedings{adder-dac12,
- author = {Kahng, Andrew B. and Kang, Seokhyeong},
- title = {Accuracy-configurable Adder for Approximate Arithmetic Designs},
- booktitle = dac,
- year = {2012},
-}
-
-@INPROCEEDINGS{adder-isic09,
-author={Ning Zhu and Wang Ling Goh and Kiat Seng Yeo},
-booktitle=isic,
-title={An enhanced low-power high-speed Adder For Error-Tolerant application},
-year={2009},
-}
-
-@inproceedings{adder-date08,
- author = {Verma, Ajay K. and Brisk, Philip and Ienne, Paolo},
- title = {Variable Latency Speculative Addition: A New Paradigm for Arithmetic Circuit Design},
- booktitle = date,
- year = {2008},
-}
-
 @article{micropower-dsp,
   title={A micropower programmable {DSP} using approximate signal processing based on distributed arithmetic},
   author={Amirtharajah, Rajeevan and Chandrakasan, Anantha P},
@@ -2605,13 +2642,6 @@ year={2009},
  title = {{SALSA}: Systematic Logic Synthesis of Approximate Circuits},
  booktitle = dac,
  year = {2012},
-}
-
-@inproceedings{metafunctions,
-  title={Design of voltage-scalable meta-functions for approximate computing},
-  author={Mohapatra, Debabrata and Chippa, Vinay K and Raghunathan, Anand and Roy, Kaushik},
-  booktitle=date,
-  year={2011},
 }
 
 @inproceedings{forgiving-parallel,
