@@ -231,23 +231,31 @@ Also, there is now more work multipliers that deserves its own paragraph
 
 ### Memory
 
+Several categories of work apply approximation to memory technologies.
+The general idea is to spend less energy on retaining or accessing data; in return, there is a small probability that bits will flip in the memory.
+
 SRAM structures spend significant static power on retaining data, so
 they represent another opportunity for fidelity trade-offs [@hybrid-sram;
-@sramerrors; @partially-forgetful]. Similarly, DRAM structures can
+@sramerrors; @partially-forgetful].
+
+Similarly, DRAM structures can
 reduce the power spent on refresh cycles where bit flips are
-allowed [@flikker; @sparkk]. In persistent memories where storage cells
+allowed [@flikker; @sparkk].
+
+In persistent memories where storage cells
 can wear out, approximate systems can reduce the number of bits they
 flip to lengthen the useful device lifetime [@fang-pcm]. Similarly,
 low-power writes to memories like flash can exploit its probabilistic
 properties while hiding them from software [@halfwits;
-@powerfade; @flash-retention-relax]. Spintronic memories exhibit
+@powerfade; @flash-retention-relax].
+
+~ TODO
+[@approxstorage]
+~
+
+Spintronic memories exhibit
 similarly favorable trade-offs between access cost and
 error [@spintronic-approx].
-
-These memory approximation techniques typically work by exposing soft
-errors and other analog effects. Recent work in security has exploited
-patterns in these variability-related errors to deanonymize
-users [@deanondram].
 
 ### Circuit Design
 
@@ -681,8 +689,21 @@ useful distinction between critical and non-critical program points,
 typically instructions [@arcs12; @thaker-iiswc06; @llfi].
 This conclusion is borne out in later work on systems that exploit this distinction [@flikker; @enerj].
 
+Security
+--------
 
+Recent work in security has exploited
+patterns in these variability-based errors in DRAM to deanonymize
+users [@deanondram].
 
+    @inproceedings{deanondram,
+     author = {Rahmati, Amir and Hicks, Matthew and Holcomb, Daniel E. and Fu, Kevin},
+     title = {Probable Cause: The Deanonymizing Effects of Approximate {DRAM}},
+     booktitle = isca,
+     year = {2015},
+    }
+
+---
 
 ```bibtex
 @inproceedings{enerj,
@@ -2583,13 +2604,6 @@ Yu Wang and Yiran Chen and Huazhong Yang},
 journal=tcad,
 title={{RRAM}-based Analog Approximate Computing},
 year={2015},
-}
-
-@inproceedings{deanondram,
- author = {Rahmati, Amir and Hicks, Matthew and Holcomb, Daniel E. and Fu, Kevin},
- title = {Probable Cause: The Deanonymizing Effects of Approximate {DRAM}},
- booktitle = isca,
- year = {2015},
 }
 
 @inproceedings{spintronic-approx,
