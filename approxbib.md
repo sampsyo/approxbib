@@ -2602,7 +2602,7 @@ year={2009},
 @inproceedings{storm,
  author = {Chippa, Vinay K. and Venkataramani, Swagath and Roy, Kaushik and Raghunathan, Anand},
  title = {{StoRM}: A Stochastic Recognition and Mining Processor},
- booktitle = ispled,
+ booktitle = islped,
  year = {2014},
 }
 
